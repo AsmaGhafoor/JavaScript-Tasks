@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Task Question 25</title>
+</head>
+
+<body>
+    <h4>Question 25</h4>
+    <h6>You have an array. Write a program to enable "search by user input" in an array.
+        after searching,prompt the user whether the given item is found in the list or not.
+    </h6>
+
+</body>
+
+<script>
+
+    let myArray = ["cake", "apple pie", "cookie", "chips", "patties"];
+    let elementName = myArray.includes(prompt("Enter your next element?"));
+    if (elementName == true) {
+        console.log("Element is found in the list: " + elementName);
+    }
+    else {
+        console.log("Element name is not found in the list");
+    }
+
+
+</script>
+
+</html>

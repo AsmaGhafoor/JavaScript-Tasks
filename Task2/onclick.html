@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>On click</title>
+</head>
+
+
+<body onresize="myclick()">
+
+    <h2 class="text-center">On click Event in JS</h2>
+
+    <p class="font-weight-bold">On click function</p>
+    <button class="mb-3" id="demo" onclick="myclick()">Click me</button> <br><br>
+
+    <p class="font-weight-bold">On Double click function</p>
+    <button ondblclick="myclick()">Double click me</button> <br><br>
+
+    <!-- <p class="font-weight-bold">On Right click function</p>
+    <button oncontextmenu="myclick()">Double click me</button> <br><br>
+
+    <p class="font-weight-bold">Mouse Enter Functions</p>
+    <button onmouseenter="myclick()">click me</button> <br><br>
+
+    <p class="font-weight-bold">Mouse Out Functions</p>
+    <button onmouseout="myclick()">click me</button> <br><br>
+
+    <p class="font-weight-bold">Mouse Up Functions</p>
+    <button onmouseup="myclick()">click me</button> <br><br>
+
+    <p class="font-weight-bold">Mouse Down Functions</p>
+    <button onmousedown="myclick()">click me</button> <br><br> -->
+
+    <p class="font-weight-bold">When we scroll a paragraph event is calling.</p>
+    <button onscroll="myclick()">click me</button> <br><br>
+
+</body>
+<script>
+    function myclick() {
+        alert("Hello Everyone!");
+        //document.write("Hello Everyone!");
+        //document.getElementById("demo").innerHTML = "Hello World";
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+</html>

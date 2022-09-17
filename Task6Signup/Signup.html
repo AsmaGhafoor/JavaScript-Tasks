@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SignUp Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+
+<body>
+    <div
+        class="container col-7 align-items-center  shadow p-3 mb-5 rounded mt-5 border border-secondary border-3 rounded-5">
+
+        <div class="row">
+            <!-- Image-->
+            <!-- <img src="picture.jpg" class="img-fluid" alt="..."> -->
+            <!-- <div class="col">
+                <div class="opacity-25" style="background-image: url('picture.jpg');"></div>
+            </div> -->
+
+            <!-- SignUp Form-->
+            <div class="col">
+                <h1 class="text-center m-4 p-2">SIGNUP PAGE</h1>
+                <form id="form" class="font-weight-bold fw-bold fs-5 p-4">
+                    <div class="row text-center">
+                        <div class="col-auto"><label for="Name" class="col-form-label">UserName</label></div>
+                        <div class="col"><input id="username" type="text" class="form-control" placeholder="name"></div>
+                    </div>
+                    <div class="row my-4">
+                        <div class="col-auto"><label for="Email" class="col-form-label">UserEmail</label></div>
+                        <div class="col"><input id="email" type="text" class="form-control" placeholder="email"></div>
+                    </div>
+                    <div class="row my-4">
+                        <div class="col-auto"><label for=" current-Password" class="col-form-label">Password</label>
+                        </div>
+                        <div class="col"><input id="password" type="current-password" class="form-control"
+                                placeholder="user-password"></div>
+                    </div>
+                    <!-- Submit Button-->
+                    <div class="d-grid gap-2 col-2 mx-auto my-2">
+                        <button id="signup" class="btn btn-dark button fw-bold" type="submit" value="Sign Up">Submit</button>
+                        <!-- onclick="UserRegister()" -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+    import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+
+    // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyDMvI3v09Fdb_j8RQ-HmfaoaB0TNUQfqpY",
+        authDomain: "signuppage-22156.firebaseapp.com",
+        databaseURL: "https://signuppage-22156-default-rtdb.firebaseio.com",
+        projectId: "signuppage-22156",
+        storageBucket: "signuppage-22156.appspot.com",
+        messagingSenderId: "292654102201",
+        appId: "1:292654102201:web:6b608da9a00b3cdb00cd68",
+        measurementId: "G-QERH4JRCCL"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    // const analytics = getAnalytics(app);
+    const database = getDatabase(app);
+    const auth = getAuth();
+
+    
+    signup.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        var username = document.getElementById('username').value;
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                // ...
+                set(ref(database,'users/'+user.uid),{
+                    username:username,
+                    email:email,
+                })
+
+                alert('User Created');
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+                alert(errorMessage);
+            });
+    })
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Boostrap 5 link-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+
+<!-- JavaScript-->
+<!-- <script src="Signup.js" type="module"></script> -->
+
+</html>

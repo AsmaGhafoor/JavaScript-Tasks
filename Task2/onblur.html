@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On blur</title>
+</head>
+
+<body>
+    <h2>On blur Event in JS</h2>
+    <label>Enter your name:</label>
+    <input type="text" id="blurfuncId" onblur="myblur()">
+
+</body>
+<script>
+    function myblur() {
+        var a = document.getElementById('blurfuncId')
+        a.value = a.value.toUpperCase();
+    }
+</script>
+
+</html>
